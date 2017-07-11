@@ -1,0 +1,22 @@
+puts "This program shows the meaning of the days"
+puts "¿What day is today?"
+
+day = gets.chomp
+ 
+if day == "Monday"
+  puts "Day of the Moon"
+elsif day == "Tuesday"
+  puts "Day of Mars"
+elsif day == "Wednesday"
+  puts "Day of Mercury"
+elsif day == "Thursday"
+  puts "Día de Jupiter"
+elsif day == "Friday"
+  puts "Day of Venus"
+elsif day == "Saturday"
+  puts "Break"
+elsif day == "Sunday"
+  puts "God´s day"
+else 
+  puts "That is not a week day"
+end
