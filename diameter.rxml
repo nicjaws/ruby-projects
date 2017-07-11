@@ -1,0 +1,24 @@
+continuar = true
+class Circulo
+  def initialize(diametro) 
+    @diametro = diametro 
+  end
+  def calcular_perimetro 
+    perimetro = 2 * 3.14 * (@diametro / 2) 
+  end
+end
+while continuar == true
+ puts "Calculador de perimetro"
+ respuesta = gets.chomp
+ respuesta = respuesta.to_i
+mi_circulo = Circulo.new(respuesta)
+puts "la distancia de tu circunferencia es = #{mi_circulo.calcular_perimetro} de largo"
+puts "(ENTER) para agregar (X) para salir"
+resp = gets.chomp
+if resp.downcase == "x"
+  continuar = false
+else
+  continuar = true
+end
+end
+gets()
