@@ -1,0 +1,60 @@
+# Juego de ahorcado
+ 
+# obtener número de líneas en el archivo
+arr = File.readlines("proyecto_ahorcado.txt")
+palabras_num = arr.length
+ 
+# obtener un número aleatorio
+linea = rand(palabras_num)
+ 
+# leer la linea correspondiente del archivo
+palabra_secreta = arr[linea].chomp
+ 
+# obtener el número de caracteres
+num_letras = palabra_secreta.length
+ 
+# crear el string con guiones bajos (que más adelante serán reemplazados por letras correctas)
+palabra_guiones = ""
+i = 0
+while i < num_letras
+    palabra_guiones.concat("*")
+    #puts palabra_secreta[i]
+    i += 1
+end 
+ 
+oportunidades = 5
+continuar = true
+while continuar
+ 
+    puts palabra_guiones
+    puts "\r\nIntroduce una letra. Te quedan #{oportunidades} oportunidades."
+    input_letra = gets.chomp
+ 
+    # revisar si la letra se encuentra en la palabra
+    letra_encontrada = false
+    i = 0
+    while i < num_letras
+        if palabra_secreta[i] == input_letra
+            palabra_guiones[i] = input_letra # reemplazar los guiones correspondientes por la letra
+            letra_encontrada = true
+        end
+        i += 1
+    end
+ 
+    if !letra_encontrada        
+        oportunidades -= 1
+        puts oportunidades
+    end
+ 
+    # revisar si la palabra completa ha sido encontrada
+    if palabra_guiones == palabra_secreta
+        puts "Muy bien hecho!! Has encontrado la palabra secreta."
+        continuar = false
+    end
+ 
+    if oportunidades == 0        
+        puts "Has perdido el juego"
+        continuar = false
+    end
+ 
+end
