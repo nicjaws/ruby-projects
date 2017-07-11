@@ -1,0 +1,22 @@
+Dir.mkdir("restaurants")
+archivo = File.new("restaurants/los_rollos_primavera.txt","w")
+archivo.puts("Los Rollos Primavera")
+archivo.puts("Jacarandas Street #18")
+archivo.puts("Opened Monday to Friday from 9 a.m. to 6 p.m.")
+archivo.puts("Phone.:55-22-54-15")
+archivo.close
+ 
+archivo = File.new("restaurants/pizzas_ruby.txt","w")
+archivo.puts("Pizzas Ruby")
+archivo.puts("Av. de la tecnología #247")
+archivo.puts("Opened Monday to Saunday from 8 a.m. to 10 p.m.")
+archivo.puts("Phone.:35-45-79-99")
+archivo.close
+ 
+arr = File.readlines("restaurants/los_rollos_primavera.txt")
+tel_1 = arr[3]
+arr = File.readlines("restaurants/pizzas_ruby.txt")
+tel_2 = arr[3]
+ 
+puts tel_1[5..15]
+puts tel_2[5..15]
