@@ -1,0 +1,24 @@
+class Array
+  def cadaPar (&eraUnBloque_ahoraUnProc)
+    # Comenzamos con «true» porque los arreglos comienzan con 0,
+    # que es par.
+    esPar = true
+
+    self .each do | objeto |
+      if esPar
+         eraUnBloque_ahoraUnProc.call objeto
+      end
+
+      esPar = ( not esPar) # Cambiamos de par a impar, o de impar a par.
+    end
+  end
+end
+
+[' manzana ', ' manzana podrida ', ' cereza ', ' durian '].cadaPar do | fruta |
+   puts ' ¡Qué rico! Amo el pay de ' + fruta + ' . ¿Tú no? '
+end
+# Recuerda, estamos obteniendo los elementos pares del arreglo, los que
+# resultan ser números impares, sólo porque me gustan problemas así.
+[ 1 , 2 , 3 , 4 , 5 ].cadaPar do | bolaImpar |
+  puts ' ¡ ' + bolaImpar.to_s + ' NO es un número par! '
+end
