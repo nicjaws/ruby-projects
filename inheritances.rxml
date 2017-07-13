@@ -1,0 +1,53 @@
+class Mamal
+  
+  attr_accessor :race 
+  
+  def initialize(r)
+    @race = r
+  end
+  
+  def walk
+    puts "Ha comenzado a caminar velozmente"
+  end
+  
+  def breath
+    puts "breath"
+  end
+  
+end
+
+class Canine < Mamal
+
+  def initialize(r)
+    super(r)
+  end
+  
+  def ladrar
+    puts "guf guf"
+  end
+  
+  def breath
+    puts "breath and gasp"
+  end
+
+end
+
+class Feline < Mamal
+  
+  def initialize(r)
+    super(r)
+  end
+  
+  def maullar
+    puts "miua miau"
+  end
+  
+end
+
+canine_1 = Canine.new("labrador")
+canine_1.breath
+feline_proof = Feline.new("siamés")
+feline_proof.breath
+
+puts canine_1.race 
+puts feline_proof.race
