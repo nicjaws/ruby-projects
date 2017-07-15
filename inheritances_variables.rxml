@@ -1,0 +1,53 @@
+class Person
+
+  attr_accessor : gender
+
+  @@num_persons = 0
+
+  def initialize(gender)
+  	@gender = gender
+  	@@num_persons += 1
+  	puts Person.num_persons
+  end
+
+  def self.num_persons
+  	@@num_persons
+  end
+
+end
+
+class Employee < Person
+
+  attr_accessor :indentifier, :level
+  
+  def initialize (gender, indentifier, level)
+  	super (gender)
+  	@indentifier = indentifier
+  	@level = level
+  end
+
+  def about
+    puts " This Employee is gender #{gender} with identifier #{identifier} and level #{level}"
+  end
+
+  def self.calculate_earnings(salary)
+  	salary * 2
+  end
+
+end
+
+employee_1 = Employee.new("masculine", "A222", 3)
+employee_1.about
+
+employee_2 = Employee.new ("femenine", "A481", 1)
+
+puts Employee.calculate_earnings(544)
+
+puts.employee_1.gender
+
+
+
+
+
+
+
