@@ -1,0 +1,36 @@
+class Client
+  
+  def initialize(balance) 
+    @balance = balance 
+  end
+  
+  def extract(quantity)  
+    new_quantity = @balance - quantity 
+    if new_balance > 0  
+      @balance = new_balance 
+      puts "You have extrated #{quantity} your new balance is #{new_balance}" 
+    else 
+      puts "Your balance is finished, it is not possible extract that quantity" 
+      puts "Current balance #{@balance}" 
+    end   
+  end
+ 
+end
+ 
+class ClientPremium < Client
+  
+  def extract(quantity) 
+    super(quantity) 
+    puts "Remember, for every buy we give you a bonus 5% of total in your balance" 
+  end
+  
+end
+ 
+a_client = Client.new(5200)
+a_client.extract(2000)
+a_client.extract(2000)
+a_client.extract(2000)
+ 
+client_p = ClientPremium.new(8000)
+client_p.extract(7000)
+client_p.extract(500)
